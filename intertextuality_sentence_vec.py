@@ -103,14 +103,14 @@ if __name__ == '__main__':
 
             print(f"\n\n《{name_list[i]}》和《{name_list[i+j+1]}》之间的互文关系分析:")
 
-            intertextual_results, bound_number = find_intertextual_relations(
+            intertextual_results, bound_rate = find_intertextual_relations(
                 file1_full_path, 
                 file2_full_path,
                 model=model,
                 similarity_threshold=similarity_param
             )
 
-            plt.plot(index, bound_number, 'o-', label=f"{name_list[i+j+1]}")
+            plt.plot(index, bound_rate, 'o-', label=f"{name_list[i+j+1]}")
 
             if intertextual_results:
                 #print(f"\n\n总共找到 {len(intertextual_results)} 组互文关系 (相似度 >= {similarity_param})。")
@@ -123,7 +123,7 @@ if __name__ == '__main__':
                     json.dump(intertextual_results, f_out, ensure_ascii=False, indent=2)
                 #print(f"结果已保存到 {output_filename}")
 
-    plt.xlabel('Threshold')
+    plt.xlabel('Cosine Similarity Threshold(%)')
     plt.ylabel('Number')
     plt.title('Intertextuality rate between Zhouyi and other books')
     plt.legend()
