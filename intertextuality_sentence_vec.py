@@ -96,7 +96,7 @@ if __name__ == '__main__':
                       "base/n020.json", "base/n022.json"]
     name_list = ["周易", "Laozi", "Lunyu", "Liezi", "Wenzi", "Mengzi", "Zhuangzi", "Xunzi"]    
 
-    for i, file1 in enumerate(["base/n001.json"]): #现在设置的仅仅是《周易》和其他几本书之间的互文关系。
+    for i, file1 in enumerate(["base/n001.json"]): #现在设置的是《周易》和其他几本书之间的互文关系。
         for j in range(len(file_name_list) - i - 1):
             file1_full_path = os.path.join(script_dir, file1)
             file2_full_path = os.path.join(script_dir, file_name_list[i+j+1])
@@ -124,7 +124,7 @@ if __name__ == '__main__':
                 #print(f"结果已保存到 {output_filename}")
 
     plt.xlabel('Cosine Similarity Threshold(%)')
-    plt.ylabel('Number')
+    plt.ylabel('Rate')
     plt.title('Intertextuality rate between Zhouyi and other books')
     plt.legend()
     plt.tight_layout()
